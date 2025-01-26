@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Module>
+    <ModulePrefs title="Button Not Ready" scrolling="true">
+        <Require feature="pubsub-2" />
+        <Require feature="loadingindicator" />
+        <Require feature="dynamic-height" />
+    </ModulePrefs>
+    <UserPref name="scheme" display_name="scheme" default_value=""/>
+    <UserPref name="host" display_name="host" default_value=""/>
+    <UserPref name="hostPort" display_name="hostPort" default_value=""/>
+    <Content type="html">
+        <![CDATA[
+            <!DOCTYPE html>
+            <!-- Styling -->
+            <link rel="stylesheet" href="buttonnotready.css" type="text/css" />
+            
+            <!-- jQuery -->
+            <script type="text/javascript" src="__UP_scheme__://__UP_host__:__UP_hostPort__/desktop/assets/js/jquery.min.js"></script>
+           
+            <!-- Finesse Library -->
+            <script type="text/javascript" src="__UP_scheme__://__UP_host__:__UP_hostPort__/desktop/assets/js/finesse.js"></script>
+
+            <!-- Gadget Business Logic -->
+            <script type="text/javascript" src="buttonnotready.js"></script>
+
+            <body>
+                <!-- Button Not Ready -->
+                <div>
+                    <fieldset id="userfieldset" class="outline">
+                        <legend>User</legend>
+                        <div><b> User ID: </b><span id="userId"></span></div>
+                        <div><b> First Name: </b><span id="firstName"></div>
+                        <div><b> Last Name: </b><span id="lastName"></div>
+                        <div><b> Role: </b><span id="userRole"></div>
+                        <div><b> Extension: </b><span id="extension"></div>
+                        <div><b> Team ID: </b><span id="teamId"></div>
+                        <div><b> Team Name: </b><span id="teamName"></div>
+                        <div><b> Current User State: </b><span id="userState"></div>
+                        <div><b> Non-Voice Logged In MRDs: </b><span id="mrdNames"></div>
+                         <div><b> Non-Voice Logged In MRDs State: </b><span id="mrdStates"></div>
+                        <br>
+                        <div id="goReady">
+                            <button onClick="finesse.modules.buttonnotready.setUserState('READY');">Change state to READY</button>
+                        </div>
+                        <div id="goNotReady">
+                            <button onClick="finesse.modules.buttonnotready.setUserState('NOT_READY');">Change state to NOT READY</button>
+                            <label for="reasonCodeSelect"><b>Select Not Ready Reason:</b></label>
+                <select id="reasonCodeSelect">
+                    <!-- We'll populate options dynamically in buttonnotready.js -->
+                </select>
+                        </div>
+                    </fieldset>
+                </div>
+            </body>
+
+            <script type="text/javascript">
+                gadgets.HubSettings.onConnect = function () {
+                    finesse.modules.buttonnotready.init();
+                };
+            </script>
+        ]]>
+    </Content>
+</Module>
