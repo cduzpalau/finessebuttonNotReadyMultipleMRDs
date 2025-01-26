@@ -106,10 +106,12 @@ This gadget consists of a few main files:
 
 3. **Select a Not Ready Reason Code (Optional)**  
    - If you plan to set yourself to Not Ready, select an appropriate reason code from the dropdown.
+![11_21_19](https://github.com/user-attachments/assets/22a8b1a3-8643-4b91-ab12-5b87e98db7d6)
 
 4. **Change State**  
    - Click **“Change state to READY”** or **“Change state to NOT READY”**.  
    - The gadget logs each step, setting your non-voice MRDs first, followed by the voice MRD.
+![11_21_41](https://github.com/user-attachments/assets/b3ecb739-ff27-4477-b002-cc112f9cfc27)
 
 5. **Verify the Results**  
    - Refresh or check another Finesse gadget (like the stock Team Performance gadget) to see that your state updated correctly across channels.
